@@ -3,6 +3,7 @@ package morning.cat.kafka;
 import morning.cat.kafka.domain.Message;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
@@ -21,21 +22,21 @@ public class SpringbootKafkaExampleApplication {
         SpringApplication.run(SpringbootKafkaExampleApplication.class, args);
     }
 
+    @Value("${demo.kafaka.topic.test}")
+    String testTopic;
+
     @Autowired
     private KafkaTemplate kafkaTemplate;
 
     @Bean
     public void send() {
-
-        String topic = "test";
         for (int i = 0; i < 3; i++) {
             Message message = Message.builder().id(i).msg("This is a test msg").build();
-            kafkaTemplate.send(topic, message);
+            kafkaTemplate.send(testTopic, message);
         }
-
     }
 
-    @KafkaListener(topics = "test")
+    @KafkaListener(topics = "${demo.kafaka.topic.test}")
     public void receive(ConsumerRecord<String, Message> consumerRecord) {
         System.out.println(consumerRecord.topic() + " --> " + consumerRecord.value());
     }

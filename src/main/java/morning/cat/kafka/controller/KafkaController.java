@@ -4,6 +4,7 @@ import morning.cat.kafka.kafka.Producer;
 import morning.cat.kafka.domain.SampleMessage;
 import org.apache.kafka.clients.producer.ProducerRecord;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -26,6 +27,9 @@ public class KafkaController {
     @Autowired
     KafkaTemplate kafkaTemplate;
 
+    @Value("${demo.kafaka.topic.record}")
+    String recordTopic;
+
     /**
      * http://127.0.0.1:8080/kafka/send?msg=ffd
      */
@@ -40,8 +44,10 @@ public class KafkaController {
      */
     @GetMapping("/send2")
     public String sendMsg2(@RequestParam("msg") String msg) {
-        ProducerRecord<String, String> record = new ProducerRecord("topicName", "gouzi", msg);
+        ProducerRecord<String, String> record = new ProducerRecord(recordTopic, "gouzi", msg);
         kafkaTemplate.send(record);
         return "SUCC";
     }
+
+
 }

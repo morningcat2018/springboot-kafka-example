@@ -30,7 +30,7 @@ public class MyListener {
 //    }
 
 
-    @KafkaListener(topics = {"topicName"})
+    @KafkaListener(topics = {"${demo.kafaka.topic.record}"})
     public void listen2(ConsumerRecord<String, String> record) {
         System.out.println("===============================");
         System.out.println("topic：" + record.topic());
