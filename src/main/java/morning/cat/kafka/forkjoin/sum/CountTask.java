@@ -1,4 +1,4 @@
-package morning.cat.kafka.forkjoin;
+package morning.cat.kafka.forkjoin.sum;
 
 import java.util.concurrent.RecursiveTask;
 

@@ -1,6 +1,7 @@
 package morning.cat.kafka.forkjoin;
 
-import java.util.Comparator;
+import org.apache.catalina.User;
+
 import java.util.concurrent.ForkJoinPool;
 import java.util.concurrent.ForkJoinTask;
 import java.util.concurrent.RecursiveAction;
@@ -18,19 +19,12 @@ public class ForkJoinDemo {
 
         ForkJoinPool forkJoinPool = new ForkJoinPool();
 
-        ForkJoinTask forkJoinTask;
+        ForkJoinTask<User> forkJoinTask;
 
         RecursiveAction recursiveAction;
 
         RecursiveTask recursiveTask;
 
-
-        Comparator comparator = new Comparator() {
-            @Override
-            public int compare(Object o1, Object o2) {
-                return 0;
-            }
-        };
 
     }
 }

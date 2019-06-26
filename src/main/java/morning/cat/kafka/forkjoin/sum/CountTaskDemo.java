@@ -1,9 +1,7 @@
-package morning.cat.kafka.forkjoin;
+package morning.cat.kafka.forkjoin.sum;
 
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ForkJoinPool;
-import java.util.concurrent.ForkJoinTask;
-import java.util.concurrent.Future;
 
 /**
  * @describe: 类描述信息
