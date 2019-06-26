@@ -3,7 +3,7 @@ package morning.cat.kafka.forkjoin;
 import java.util.concurrent.RecursiveTask;
 
 /**
- * @describe: 类描述信息
+ * @describe: link https://www.infoq.cn/article/fork-join-introduction
  * @author: morningcat.zhang
  * @date: 2019/6/25 2:47 PM
  */
