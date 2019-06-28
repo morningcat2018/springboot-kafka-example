@@ -1,6 +1,5 @@
 package morning.cat.kafka.forkjoin.pool;
 
-import java.util.concurrent.RecursiveAction;
 import java.util.concurrent.RecursiveTask;
 
 /**
@@ -43,7 +42,7 @@ public class MyTask extends RecursiveTask<Integer> {
 //        rightTask.fork();
 
         // right
-        invokeAll(leftTask,rightTask);
+        invokeAll(leftTask, rightTask);
 
         Integer leftResult = leftTask.join();
         Integer rightResult = rightTask.join();

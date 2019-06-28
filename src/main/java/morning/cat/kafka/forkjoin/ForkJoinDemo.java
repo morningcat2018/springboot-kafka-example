@@ -17,7 +17,7 @@ public class ForkJoinDemo {
     public static void main(String[] args) {
 
 
-        ForkJoinPool forkJoinPool = new ForkJoinPool();
+        ForkJoinPool forkJoinPool = new ForkJoinPool(4);
 
         ForkJoinTask<User> forkJoinTask;
 
