@@ -35,9 +35,6 @@ public class ConsumerTest {
                         System.out.println(key);
                         Person person = record.value();
                         System.out.println(person);
-                        System.out.println(person.getId());
-                        System.out.println(person.getName());
-                        System.out.println(person.getPersonNo());
                     });
                     System.out.println("============");
                 }
