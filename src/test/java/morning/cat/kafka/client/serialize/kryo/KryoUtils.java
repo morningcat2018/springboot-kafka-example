@@ -1,4 +1,4 @@
-package morning.cat.kafka.client.serialize;
+package morning.cat.kafka.client.serialize.kryo;
 
 import com.esotericsoftware.kryo.Kryo;
 import com.esotericsoftware.kryo.io.Input;

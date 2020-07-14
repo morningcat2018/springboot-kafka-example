@@ -1,8 +1,12 @@
-package morning.cat.kafka.client.kryo_test;
+package morning.cat.kafka.client.api.custom;
 
 import morning.cat.kafka.client.domain.Person;
+import morning.cat.kafka.client.serialize.PersonDeserializer;
+import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.clients.consumer.ConsumerRecords;
 import org.apache.kafka.clients.consumer.KafkaConsumer;
+import org.apache.kafka.clients.producer.ProducerConfig;
+import org.apache.kafka.common.serialization.StringDeserializer;
 
 import java.time.Duration;
 import java.util.Collections;
@@ -15,14 +19,14 @@ import java.util.Properties;
  * @Version 1.0
  */
 public class ConsumerTest {
-    public static final String TOPIC = "helloTopic5";
+    public static final String TOPIC = "helloTopic6";
 
     public static void main(String[] args) {
         Properties properties = new Properties();
-        properties.put("key.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
-        properties.put("value.deserializer", "morning.cat.kafka.client.serialize.PersonUseKryoDeserializer");
-        properties.put("bootstrap.servers", "localhost:9092");
-        properties.put("group.id", "no2"); // 分组
+        properties.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class.getName());
+        properties.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, PersonDeserializer.class.getName());
+        properties.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:9092");
+        properties.put("group.id", "no3"); // 分组
         KafkaConsumer<String, Person> consumer = new KafkaConsumer(properties);
         consumer.subscribe(Collections.singleton(TOPIC));
 
@@ -31,12 +35,9 @@ public class ConsumerTest {
                 ConsumerRecords<String, Person> records = consumer.poll(Duration.ofMillis(1000));
                 if (!records.isEmpty()) {
                     records.forEach(record -> {
-                        String key = record.key();
-                        System.out.println(key);
-                        Person person = record.value();
-                        System.out.println(person);
+                        System.out.println(record.key());
+                        System.out.println(record.value());
                     });
-                    System.out.println("============");
                 }
             } catch (Exception e) {
                 e.printStackTrace();

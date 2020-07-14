@@ -1,4 +1,4 @@
-package morning.cat.kafka.client.serialize;
+package morning.cat.kafka.client.serialize.kryo;
 
 import morning.cat.kafka.client.domain.Person;
 
