@@ -14,7 +14,7 @@ import java.util.Properties;
 import java.util.stream.Collectors;
 
 /**
- * @describe: TODO 类描述信息
+ * @describe: 消息生产者
  * @author: morningcat.zhang
  * @date: 2020/7/13 11:40 AM
  * @Version 1.0

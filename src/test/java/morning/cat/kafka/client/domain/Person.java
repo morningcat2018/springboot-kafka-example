@@ -12,7 +12,9 @@ import java.time.LocalDate;
  * @Version 1.0
  */
 @Data
-public class Person implements Serializable {
+public class Person
+//        implements Serializable
+{
 
     private Long id;
 
@@ -20,5 +22,5 @@ public class Person implements Serializable {
 
     private String name;
 
-//    private LocalDate birthday;
+    private LocalDate birthday;
 }

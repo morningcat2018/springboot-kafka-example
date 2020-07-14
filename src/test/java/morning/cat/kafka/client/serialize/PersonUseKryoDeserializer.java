@@ -12,7 +12,6 @@ import org.apache.kafka.common.serialization.Deserializer;
  */
 public class PersonUseKryoDeserializer implements Deserializer<Person> {
 
-
     @Override
     public Person deserialize(String topic, byte[] data) {
         return KryoUtils.deserialize(data, Person.class);
