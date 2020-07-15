@@ -54,7 +54,7 @@ import java.util.Set;
  * 编码：字符串 -> 字节数组
  * 解码：字节数组  -> 字符串
  */
-public class ChannelTest {
+public class FileChannelTest {
 
     /**
      * 利用通道完成文件的复制（非直接缓冲区）
